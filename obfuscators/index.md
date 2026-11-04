@@ -17,9 +17,13 @@ This excellent paper introduces metrics such as potency, resilience, and cost.
 
 ## String Literal Obfuscation
 We focus here on an easy to grasp problem -- how to obfuscate a string literal from your source code, so that sensitive data is not trivially readable. Without obfuscation, a tool like ILSpy allows us to inspect all string literals immediately, without having access to the source code.
-![Unobfuscated DLL](assets/unobfuscated.png)
+<p align="center">
+  <img src="assets/unobfuscated.png" alt="Unobfuscated DLL" width="400">
+</p>
 With obfuscation, the inspection of strings becomes somewhat trickier. As an example, the following library has been obfuscated with an open-source obfuscation tool, and is again being inspected with ILSpy:
-![Obfuscated DLL](assets/obfuscated.png)
+<p align="center">
+  <img src="assets/obfuscated.png" alt="Obfuscated DLL" width="400">
+</p>
 This problem falls into the data obfuscation, in contrast to e.g. control flow obfuscation. In C#, the compiler generates a CIL (Common Intermediate Language) representation of every source program. Without obfuscation, the IL section contains in plain text all string literals, including e.g. private key, passwords, communication endpoints, etc. The data can be trivially read with tools like ILSpy by simply inspecting the generated DLL file (if you use standard compilation toolchains).
 
 Obfuscation tools for string literals follow a well established scheme -- they replace the string literal in the IL section with obfuscated versions of that string, and a call to a deobfuscating function, which also resides somewhere in the IL section.
