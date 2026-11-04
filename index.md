@@ -1,16 +1,14 @@
-&#x20;  ---
+\---
 
-&#x20;  layout: default
+layout: default
 
-&#x20;  title: Tech Reports
+title: Tech Reports
 
-&#x20;  ---
-
-
-
-&#x20;  # Tech Reports
+\---
 
 
 
-&#x20;  - \[Obfuscators for trading platforms](obfuscators/)
+\# Tech Reports
+
+\- \\\[Obfuscators for trading platforms](obfuscators/)
 
