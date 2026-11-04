@@ -35,4 +35,5 @@ From a practical point of view, there are three possible directions you can take
 
 ## References
 <a id="1">[1]</a> Collberg, Christian, Clark Thomborson, and Douglas Low. "A taxonomy of obfuscating transformations." 9 Jul. 1997
+
 <a id="2">[2]</a> Tkachenko, Anton, Dmitrij Suskevic, and Benjamin Adolphi. "Deconstructing Obfuscation: A four-dimensional framework for evaluating Large Language Models assembly code deobfuscation capabilities." arXiv preprint arXiv:2505.19887 (2025).
