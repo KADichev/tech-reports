@@ -1,3 +1,8 @@
+---
+layout: default
+title: Obfuscation for Trading Platforms
+---
+
 # Obfuscation of source code for proprietary trading platforms  
 This report describes the possible paths of obfuscating your indicator/robot/plugin for a proprietary trading platform you embed it into.
 In this case, the trading platform is cTrader, and the programming language is C#.
