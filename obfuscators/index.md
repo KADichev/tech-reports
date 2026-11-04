@@ -3,7 +3,7 @@ layout: default
 title: Obfuscation for Trading Platforms
 ---
 
-# Obfuscation of source code for proprietary trading platforms  
+# Obfuscation for Trading Platform Indicators/Robots
 This report describes the possible paths of obfuscating your indicator/robot/plugin for a proprietary trading platform you embed it into.
 In this case, the trading platform is cTrader, and the programming language is C#.
 
@@ -24,11 +24,11 @@ With obfuscation, the inspection of strings becomes somewhat trickier. As an exa
 <p align="center">
   <img src="assets/obfuscated.png" alt="Obfuscated DLL" width="400">
 </p>
-This problem falls into the data obfuscation, in contrast to e.g. control flow obfuscation. In C#, the compiler generates a CIL (Common Intermediate Language) representation of every source program. Without obfuscation, the IL section contains in plain text all string literals, including e.g. private key, passwords, communication endpoints, etc. The data can be trivially read with tools like ILSpy by simply inspecting the generated DLL file (if you use standard compilation toolchains).
+This problem falls into the data obfuscation category, in contrast to e.g. control flow obfuscation. In C#, the compiler generates a CIL (Common Intermediate Language) representation of every source program. Without obfuscation, the IL section contains in plain text all string literals, including e.g. private key, passwords, communication endpoints, etc. The data can be trivially read with tools like ILSpy by simply inspecting the generated DLL file (if you use standard compilation toolchains).
 
 Obfuscation tools for string literals follow a well established scheme -- they replace the string literal in the IL section with obfuscated versions of that string, and a call to a deobfuscating function, which also resides somewhere in the IL section.
 The potency, resilience and cost of the obfuscation depends on the function used to obfuscate/deobfuscate the string literals.
-It is interesting to note that in recent studies[[2]](#2).  on the quality of LLM when targeting deobfuscation, string literal obfuscation turned out to be among the most challenging techniques for LLMs.
+It is interesting to note that in recent studies[[2]](#2) on the quality of LLM when targeting deobfuscation, string literal obfuscation turned out to be among the most challenging techniques for LLMs.
 
 ## Three Possible Directions
 
@@ -39,7 +39,7 @@ From a practical point of view, there are three possible directions you can take
 * You do not want to pay, and integrate your own obfuscation, either by implementing it, or by relying on open-source tools. The landcape is rather messy and many tools are poorly documented. You need to invest a considerable amount of time, but you know exactly what happens. The steps are:
   * You use the standard .NET compilation process, which produces a normal DLL library.
   * You apply obfuscation on the generated DLL to produce an obfuscated DLL (which follows the principles of rewriting the IL described above).
-* You pay for a commercial obfuscation product. You know what you get, and you probably get a superior degree of obfuscation, even for the fact that you have a clear spec what the obfuscator you purchased actually does.
+* You pay for a commercial obfuscation product. This is the safest, and most expensive, option. You get a superior degree of obfuscation, even for the fact that you have a clear spec what the obfuscator you purchased actually does.
 
 ## References
 <a id="1">[1]</a> Collberg, Christian, Clark Thomborson, and Douglas Low. "A taxonomy of obfuscating transformations." 9 Jul. 1997
